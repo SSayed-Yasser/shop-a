@@ -234,9 +234,9 @@ body {
       width: 102%;
   }
 }
-@media (max-width: 1600px) {
+@media (max-width: 1500px) {
   .all-glasses-containar {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       width: 102%;
   }
 }
