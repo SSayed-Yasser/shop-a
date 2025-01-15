@@ -294,6 +294,7 @@ img {
   height: 100%;
   width: 100%;
   align-content: center;
+  align-item: center;
   color: #fff;
   margin-left: 10%;
 }
@@ -440,6 +441,10 @@ img {
 }
 .box-1 {
   width: 50%;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
 }
 .box-2 {
   width: 50%;
@@ -588,6 +593,10 @@ img {
   border-radius: 10px;
   justify-items: center;
   align-content: center;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
   overflow: hidden;
 }
 
