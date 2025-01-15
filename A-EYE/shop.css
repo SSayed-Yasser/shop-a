@@ -234,7 +234,7 @@ body {
       width: 102%;
   }
 }
-@media (max-width: 1500px) {
+@media (max-width: 1530px) {
   .all-glasses-containar {
       grid-template-columns: repeat(3, 1fr);
       width: 102%;
