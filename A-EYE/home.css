@@ -406,7 +406,7 @@ img {
 }
 @media (max-width: 575px) {
   .slide-contant {
-    height: 231px;
+    height: 225px;
     margin-top: -225px;
   }
   .h1-contant {
