@@ -406,8 +406,8 @@ img {
 }
 @media (max-width: 750px) {
   .slide-contant {
-    height: 220px;
-    margin-top: -200px;
+    height: 215px;
+    margin-top: -215px;
   }
   .h1-contant {
     font-size: 100%;
