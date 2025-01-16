@@ -757,7 +757,7 @@ img {
   scroll-behavior: smooth;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  padding-left: 50px;
+  padding-left: 40px;
 }
 .scroll-content::-webkit-scrollbar {
   display: none;
