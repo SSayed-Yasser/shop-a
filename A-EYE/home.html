@@ -1,0 +1,295 @@
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="./home.css">
+  <LInk rel="icon" href="./image/logos/logo-02.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A-EYE</title>
+</head>
+<body>
+
+  <div id="part1" class="part1">
+
+    <div class="none" id="nonediv">
+      <div class="login-div-logo">
+        <img src="./image/logos/logo1.png" alt="" class="img-logo">
+        <h4 class="h4-part1">A</h4>
+        <h4 class="h4-part1 color-blue">EYE</h4>
+      </div>
+      <h1 class="login-h1">Get Started with Us</h1>
+      <p class="login-p">Please choose a login method from the three methods below</p>
+      <div class="button01" onclick="loginPage()">
+        <h5 class="number-login">1</h5>
+        <h5>Login to your account</h5>
+      </div>
+      <div class="button01" onclick="singinpage()">
+        <h5 class="number-login">2</h5>
+        <h5>Sign up your account</h5>
+      </div>
+      <h5 style="margin: 5px; margin-bottom: 10px;">or</h5>
+      <div class="button01" onclick="parttowpage()">
+        <h5 class="number-login">3</h5>
+        <h5>Continue browsing as a guest</h5>
+      </div>
+    </div>
+
+    <div class="login" id="logindiv">
+      <div class="login-div-logo">
+        <img src="./image/logos/logo1.png" alt="" class="img-logo">
+        <h4 class="h4-part1">A</h4>
+        <h4 class="h4-part1 color-blue">EYE</h4>
+      </div>
+      <h1 class="login-h1" style="margin-bottom: 50px;">Login Your Account</h1>
+      <div class="div-email">
+        <h5 class="email-lable">Email</h5>
+        <input type="email" id="gimail-login" class="gimail-login" placeholder="sayedyasser@aeye.com">
+      </div>
+      <div class="div-email">
+        <h5 class="email-lable">Password</h5>
+        <input type="password" id="pass-login" class="gimail-login" placeholder="******">
+      </div>
+      <div class="remmber-div">
+        <div class="forgetpass-div">
+          <h5 class="forget-h5" onclick="">Forget Password</h5>
+        </div>
+        <div class="remm-div">
+          <input type="checkbox" c>
+          <h5 class="forget-h5" style="color: black;" onclick="">Remmber me</h5>
+        </div>
+      </div>
+      <button class="login-button">Login</button>
+      <p style="margin: 10px;">------------ or ------------</p>
+      <div class="donthaveacc">
+        <h4 class="h4-create2">Don't have an account</h4>
+        <button class="h4-create" onclick="create()">Create one</button>
+      </div>
+    </div>
+
+  
+    <div class="signin" id="signindiv">
+      <h1>signin</h1>
+    </div>
+
+  </div>
+
+  <div id="part2" class="part2">
+    <!-- heder -->
+    <div class="header" id="header">
+      <div class="logo">
+        <img src="./image/logos/logo.jpg" alt="erorr" class="header-logo">
+      </div>
+      <div class="main-header">
+        <a id="all-glasses-header" href="#header" class="aa" onclick="allHeader()">Home</a>
+        <a id="acces-header" href="./shop.html" class="aa" onclick="AccessoriesHeader()">Shop</a>
+        <a id="offers-header" href="#header" class="aa" onclick="OffersHeader()">Offers</a>
+        <a id="contact-header" href="#header" class="aa" onclick="ContactHeader()">Accessories</a>
+        <div class="bage-center">
+          <img src="./image/icons/bag.png" alt="" class="header-cart" onclick="">
+          <p class="quantity">2</p>
+        </div>
+      </div>
+      <div class="login-button-home">
+        <button class="login-but button-animation" onclick="loginbuttonheader()">Login</button>
+      </div>
+    </div>
+    <!-- heder -->
+  
+    <!-- slideshow -->
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <img src="./image/home-photos/home-2.jpg" style="width:100%" class="imge-offers">
+      </div>
+      <div class="mySlides fade">
+        <img src="./image/home-photos/home-4.jpg" style="width:100%" class="imge-offers">
+      </div>
+      <div class="mySlides fade">
+        <img src="./image/home-photos/home-3.jpg" style="width:100%" class="imge-offers">
+      </div>
+      <div class="mySlides fade">
+        <img src="./image/home-photos/home-1.jpg" style="width:100%" class="imge-offers">
+      </div>
+    </div>
+  
+    <div class="slideshow-img fade">
+      <img src="./image/icons/down.png" alt="" class="down-img">
+    </div>  
+  
+    <div class="slide-contant">
+      <div class="salide-con-2">
+        <p class="p-contant">Fit and style eyeglasses 90% off</p>
+        <h1 class="h1-contant">Prescription glasses at <br> remarkable prices</h1>
+        <p class="p2-contant">Find your offers</p>
+        <button class="button-con button-animation2">Shop now</button>
+      </div>
+    </div>
+    <div style="text-align:center" class="dot-div">
+      <span class="dot"></span> 
+      <span class="dot"></span> 
+      <span class="dot"></span> 
+      <span class="dot"></span> 
+    </div>
+    <!-- slideshow -->
+  
+    <!-- box -->
+    <div class="box-view">
+      <div class="box-2">
+        <div class="box-acc">
+          <div class="shadow-box">
+            <h1 class="h1box">Accessories</h1>
+            <p class="pbox">Try our Accessories style glasses</p>
+            <p class="pbox">and get 10%:50% off</p>
+            <button class="bubox button-animation2">Shop Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="box-1">
+        <div class="box-21">
+          <div class="box-men box-all">
+            <div class="shadow-box">
+              <h1 class="h1box">Men</h1>
+              <p class="pbox">Try our men glasses</p>
+              <p class="pbox">and get 10%:50% off</p>
+              <button class="bubox button-animation2">Shop Now</button>
+            </div>
+          </div>
+          <div class="box-women box-all">
+            <div class="shadow-box">
+              <h1 class="h1box">Women</h1>
+              <p class="pbox">Try our women style glasses</p>
+              <p class="pbox">and get 10%:50% off</p>
+              <button class="bubox button-animation2">Shop Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="box-22">
+          <div class="box-chil box-all">
+            <div class="shadow-box">
+              <h1 class="h1box">Kids</h1>
+              <p class="pbox">Try our Kids style glasses</p>
+              <p class="pbox">and get 10%:50% off</p>
+              <button class="bubox button-animation2">Shop Now</button>
+            </div>
+          </div>
+          <div class="box-sun box-all">
+            <div class="shadow-box">
+              <h1 class="h1box">Sunglasses</h1>
+              <p class="pbox">Try our Sunglasses style glasses</p>
+              <p class="pbox">and get 10%:50% off</p>
+              <button class="bubox button-animation2">Shop Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- box -->
+  
+    <!-- new -->
+    <div class="h1-new">
+      <h1 class="h1-new-1">New Products</h1>
+    </div>
+    <hr class="hr-new">
+      <div class="scroll-container">
+        <button class="scroll-button scroll-button-left" onclick="scrollContentLeft()">◀</button>
+        <div class="scroll-content" id="scroll-content">
+          <div class="div-new2">
+            <div class="sale-div sale-div1">
+              <h6 class="sale-h6">Sale</h6>
+              <h6 class="sale-h6">10%</h6>
+            </div>
+            <div class="img-new-hiddeimg">
+              <img src="./image/prodcts/children/chil-round-eyeglasses-3.png" alt="" class="img-new-products">
+            </div>
+            <div class="lens-div">
+              <h5 class="left9 left55">Lens Typ:</h5>
+              <h5 class="left10 left55"> Polycarbonate Lenses</h5>
+            </div>
+            <button class="quick-add-button-css-1 button-animation">QUICK ADD</button>
+            <h4 class="new-name-h4">Round EyeGlasses black men`s</h4>
+            <div class="price-div1">
+              <p class="prive-without-sele">500.00 EG</p>
+              <p class="prive-with-sele">450.00 EG</p>
+            </div>
+          </div>
+        </div>
+        <button class="scroll-button scroll-button-right" onclick="scrollContentRight()">▶</button>
+      </div>
+    <!-- new -->
+  
+    <!-- accs -->
+    <div class="h1-new">
+      <h1 class="h1-new-1">New Accessories</h1>
+    </div>
+    <hr class="hr-new">
+      <div class="scroll-container2">
+        <button class="scroll-button scroll-button-left" onclick="scrollContentLeft2()">◀</button>
+        <div class="scroll-content2" id="scroll-content2">
+          <div class="div-accs" style=" background-image: url(./image/accs/accs-2.jpg);">
+            <div class="back-filter">
+              <h3 class="accs-h4">Classic Hybrid Chain</h43>
+                <p class="discription">Women's Classic Hybrid Chain Best quality at the lowest price with<p class="discription1">one year warranty</p></p>
+                <div class="sale-div12">
+                  <h6 class="sale-h6">Sale</h6>
+                  <h6 class="sale-h6">10%</h6>
+                </div>
+                <button class="button-acc button-animation2">Bay Now</button>
+                <div class="price-div12">
+                  <p class="prive-without-sele2">500.00 EG</p>
+                  <p class="prive-with-sele2">450.00 EG</p>
+                </div>
+            </div>
+          </div>
+        </div>
+        <button class="scroll-button scroll-button-right" onclick="scrollContentRight2()">▶</button>
+      </div>
+    <!-- accs -->
+  
+    <div class="over-footer">
+      <div class="contant-o">
+        <img src="./image/accs/accs-2.jpg" alt="" class="te3bt-img">
+        <div class="te3bt">
+          <h1 style="color: red; font-size: 250%; margin: 0;">,,</h1>
+          <p style="margin-top: 5px; font-size: 80%; margin-bottom: 0;">
+            The one-year warranty covers rust protection and leather 
+            deterioration only. Other damages are not included.
+          </p>
+            <p style="font-size: 80%; color: #0000008c; margin: 0;">-A EYE</p>
+        </div>
+      </div>
+    </div>
+  
+  
+    <!-- footer -->
+    <div class="footer">
+      <div class="logo-text">
+        <img src="./image/logos/logo1.png" alt="" class="img-fo">
+        <h3 class="h3-footer">A EYE</h3>
+      </div>
+      <div class="cont01">
+          <div class="item item-1">
+              <div class="item item-01"></div>
+              <p class="pp01">#002b55</p>
+          </div>
+          <div class="item item-2">
+              <div class="item item-02"></div>
+              <p class="pp02">#00162c</p>
+          </div>
+          <div class="item item-3">
+              <div class="item item-03"></div>
+              <p class="pp03">#9f1300</p>
+          </div>
+          <div class="item item-4">
+              <div class="item item-04"></div>
+              <p class="pp04">#6d0d00</p>
+          </div>
+      </div>
+      <div class="cont011">
+        <p class="pp05" id="webc">Website Colors</p>
+      </div>
+    </div>
+    <!-- footer -->
+  </div>
+
+</body>
+<script src="./home-js/mange.js"></script>
+<script type="module" src="./home-js/mange-mud.js"></script>
+</html>
