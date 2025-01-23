@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Accounts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #002e3c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid #002e3c;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        textarea {
+            width: 98%;
+            height: 30vh;
+            background-color: #002e3c;
+            color: #fff;
+            border: 1px solid #002e3c;
+            border-radius: 10px;
+            padding: 1%;
+            scrollbar-width: none;
+        }
+        button {
+            background-color: #002e3c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #00485e;
+        }
+        .input-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .input-container input {
+            flex: 1;
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #002e3c;
+            border-radius: 10px;
+        }
+        .input-container button {
+            flex: 0 0 auto;
+            padding: 10px;
+            margin: 0;
+        }
+        .save-button {
+            width: 100%;
+            margin-top: 20px;
+            background-color: #490000;
+        }
+        .save-button:hover {
+            background-color: #770000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Accounts</h1>
+        <textarea id="accounts"></textarea><br>
+
+        <div class="input-container">
+            <input type="number" id="search-id" placeholder="Enter Account ID">
+            <button onclick="loadAccountById()">Load by ID</button>
+        </div>
+        <div class="input-container">
+            <input type="text" id="search-name" placeholder="Enter Account Name">
+            <button onclick="loadAccountByName()">Load by Name</button>
+        </div>
+
+        <button class="save-button" onclick="saveAccounts()">Save Changes</button>
+    </div>
+
+    <script>
+        // Load accounts into textarea
+        function loadAccounts() {
+            var users = JSON.parse(localStorage.getItem('users')) || [];
+            var accountsTextarea = document.getElementById('accounts');
+            accountsTextarea.value = JSON.stringify(users, null, 4); // Pretty-print JSON
+        }
+
+        // Save changes back to localStorage
+        function saveAccounts() {
+            var accountsTextarea = document.getElementById('accounts');
+            try {
+                var users = JSON.parse(accountsTextarea.value);
+                localStorage.setItem('users', JSON.stringify(users));
+                alert('Accounts saved successfully!');
+            } catch (e) {
+                alert('Failed to save accounts. Please ensure the JSON is correctly formatted.');
+            }
+        }
+
+        // Load account by ID
+        function loadAccountById() {
+            var id = parseInt(document.getElementById('search-id').value, 10);
+            var users = JSON.parse(localStorage.getItem('users')) || [];
+            var user = users.find(function(user) {
+                return user.id === id;
+            });
+
+            if (user) {
+                document.getElementById('accounts').value = JSON.stringify(user, null, 4);
+            } else {
+                alert('Account not found!');
+            }
+        }
+
+        // Load account by Name
+        function loadAccountByName() {
+            var name = document.getElementById('search-name').value;
+            var users = JSON.parse(localStorage.getItem('users')) || [];
+            var user = users.find(function(user) {
+                return user.name === name;
+            });
+
+            if (user) {
+                document.getElementById('accounts').value = JSON.stringify(user, null, 4);
+            } else {
+                alert('Account not found!');
+            }
+        }
+
+        // Load accounts when the page loads
+        window.onload = loadAccounts;
+    </script>
+</body>
+</html>
