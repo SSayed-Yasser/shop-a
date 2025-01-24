@@ -168,6 +168,30 @@ body::-webkit-scrollbar {
   opacity: 0; 
   animation: fadeIn123 1.5s ease-in-out forwards; 
 }
+.error-pass {
+  margin-top: -50px;
+  color: red;
+  max-width: 50%;
+  margin-left: 25%;
+}
+@media (max-width: 2000px) {
+  .error-pass {
+    max-width: 30%;
+    margin-left: 35%;
+  }
+}
+@media (max-width: 1000px) {
+  .error-pass {
+    max-width: 50%;
+    margin-left: 25%;
+  }
+}
+@media (max-width: 575px) {
+  .error-pass {
+    max-width: 80%;
+    margin-left: 10%;
+  }
+}
 @keyframes fadeIn123 { 
   to { 
     opacity: 1; 
@@ -233,6 +257,9 @@ body::-webkit-scrollbar {
   margin-left: 25%;
   text-align: left;
   display: flex;
+  align-items: center;
+  height: 10px;
+  margin-bottom: 15px;
 }
 .forgetpass-div {
   width: 50%;
@@ -242,8 +269,17 @@ body::-webkit-scrollbar {
 }
 .forget-h5 {
   color: #002e3c;
-  margin: 5px;
+  margin: 0px;
   transition-duration: 1s;
+  outline: none;
+  text-decoration: none;
+}
+.forget-h6 {
+  color: #002e3c;
+  margin: 0px;
+  transition-duration: 1s;
+  outline: none;
+  text-decoration: none;
 }
 .remm-div {
   width: 50%;

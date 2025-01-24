@@ -189,6 +189,7 @@ function createAccount() {
   if (add.length < 10) {
     document.getElementById('address-signin').style.border = 'red 1px solid';
     isValid = false;
+    document.getElementById('erorr-login').innerText = 'Your Location is short Please write at least 11 characters.';
   } else {
     document.getElementById('address-signin').style.border = 'green 1px solid';
   }
@@ -196,12 +197,14 @@ function createAccount() {
   // Validate name
   if (name.length > 15) {
       document.getElementById('name-signin').style.border = 'red 1px solid';
+      document.getElementById('erorr-login').innerText = 'Your Name is long Please write at most 14 characters.';
       isValid = false;
   } else {
     document.getElementById('name-signin').style.border = 'green 1px solid';
   }
   if (name.length < 3) {
     document.getElementById('name-signin').style.border = 'red 1px solid';
+    document.getElementById('erorr-login').innerText = 'Your Name is short Please write at least 4 characters.';
     isValid = false;
   } else {
     document.getElementById('name-signin').style.border = 'green 1px solid';
@@ -211,6 +214,7 @@ function createAccount() {
   var phoneRegex = /^(011|012|015|010)\d{8}$/;
   if (!phoneRegex.test(phone)) {
     document.getElementById('phone-signin').style.border = 'red 1px solid';
+    document.getElementById('erorr-login').innerText = 'Your Phone is short Please write 11 characters. and It starts with 011, 012, 010, 015';
     isValid = false;
   } else {
     document.getElementById('phone-signin').style.border = 'green 1px solid';
@@ -219,12 +223,14 @@ function createAccount() {
   // Validate email
   if (!email.endsWith('@aeye.com')) {
     document.getElementById('gimail-signin').style.border = 'red 1px solid';
+    document.getElementById('erorr-login').innerText = 'Your Email is short Please write 14 at all. and It ending with @aeye.com';
     isValid = false;
   } else {
     document.getElementById('gimail-signin').style.border = 'green 1px solid';
   }
-  if (email.length < 15) {
+  if (email.length < 13) {
     document.getElementById('gimail-signin').style.border = 'red 1px solid';
+    document.getElementById('erorr-login').innerText = 'Your Email is short Please write 14 at all. and It ending with @aeye.com';
     isValid = false;
   } else {
     document.getElementById('gimail-signin').style.border = 'green 1px solid';
@@ -234,11 +240,13 @@ function createAccount() {
   if (password.length > 15) {
     document.getElementById('pass-signin').style.border = 'red 1px solid';
     isValid = false;
+    document.getElementById('erorr-login').innerText = 'Your Password is long Please write at most 14 characters.';
   } else {
     document.getElementById('pass-signin').style.border = 'green 1px solid';
   }
   if (password.length < 8) {
     document.getElementById('pass-signin').style.border = 'red 1px solid';
+    document.getElementById('erorr-login').innerText = 'Your Name is short Please write at least 8 characters.';
     isValid = false;
   } else {
     document.getElementById('pass-signin').style.border = 'green 1px solid';
@@ -250,8 +258,9 @@ function createAccount() {
       users.push({ id: nextId, name: name, phone: phone, email: email, password: password, address: add });
       localStorage.setItem('users', JSON.stringify(users));
       localStorage.setItem('nextId', (nextId + 1).toString());
-
+      localStorage.setItem("loginMethod","loginin")
       alert('Account created successfully!');
+      window.location.href = './home.html';
   }
 }
 
