@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            opacity: 0; 
+            animation: fadeIn 0.5s ease-in-out forwards; 
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        @keyframes fadeIn { 
+          to { 
+            opacity: 1; 
+          }
+        } 
+        .account-details {
+            background-color: #fff;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .account-details h2 {
+            margin-bottom: 20px;
+            color: #002e3c;
+        }
+        .account-details p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .sayed4 {
+            background-color: #002e3c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+        .sayed4:hover {
+            background-color: #9e0000;
+        }
+        a {
+          outline: none;
+          color: #002e3c;
+          
+        }
+        .sayed {
+          width: 100px;
+          background-color: #00000000;
+          border: none;
+          margin-top: 10px;
+        }
+        .sayed:hover {
+          color: #9e0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="account-details">
+        <h2>Account Details</h2>
+        <p id="account-id" style="text-align: left; margin-left: 20px;"></p>
+        <p id="account-name" style="text-align: left; margin-left: 20px;"></p>
+        <p id="account-phone" style="text-align: left; margin-left: 20px;"></p>
+        <p id="account-email" style="text-align: left; margin-left: 20px;"></p>
+        <p id="account-add" style="text-align: left; margin-left: 20px; margin-bottom: 20px;"></p>
+        <button class="sayed4" onclick="deleteAccount()">Delete Account</button>
+        <br>
+        <button class="sayed4"onclick="logout()">Logout</button>
+        <br>
+        <button class="sayed" onclick="window.location.href = './home.html';">--  Back --</button>
+    </div>
+
+    <script>
+        // Load logged-in user details
+        window.onload = function() {
+            var user = JSON.parse(localStorage.getItem('loggedInUser'));
+            if (user) {
+                document.getElementById('account-id').innerText = 'ID: ' + user.id;
+                document.getElementById('account-name').innerText = 'Name: ' + user.name;
+                document.getElementById('account-phone').innerText = 'Phone: ' + user.phone;
+                document.getElementById('account-email').innerText = 'Email: ' + user.email;
+                document.getElementById('account-add').innerText = 'Address: ' + user.address;
+            } else {
+                alert('No user is logged in!');
+                window.location.href = 'home.html';
+            }
+        };
+
+        // Delete account function
+        function deleteAccount() {
+            var user = JSON.parse(localStorage.getItem('loggedInUser'));
+            if (user) {
+                var users = JSON.parse(localStorage.getItem('users')) || [];
+                var updatedUsers = users.filter(function(u) {
+                    return u.id !== user.id;
+                });
+                localStorage.setItem('users', JSON.stringify(updatedUsers));
+                localStorage.removeItem('loggedInUser');
+                alert('Account deleted successfully!');
+                localStorage.setItem("loginMethod","sayed")
+                window.location.href = 'home.html';
+            }
+        }
+
+        function logout() {
+          localStorage.setItem("loginMethod","sayed")
+          localStorage.removeItem('loggedInUser');
+          alert('Logged out successfully!');
+          window.location.href = 'home.html';
+        }
+    </script>
+</body>
+</html>

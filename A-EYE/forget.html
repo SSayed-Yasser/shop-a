@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #002e3c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            max-width: 50%;
+            width: 50%;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        input, button {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 10px;
+            border: 1px solid #002e3c;
+        }
+        button {
+            background-color: #002e3c;
+            color: #fff;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+        button:hover {
+            background-color: #00485e;
+        }
+        .account-option {
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        .account-option.selected {
+            background-color: #b0b0b0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Reset Password</h1>
+        <div id="search-container">
+            <input type="text" id="phone" placeholder="Enter your phone number"><br>
+            <button onclick="findAccounts()">Find Accounts</button>
+        </div>
+        
+        <div id="account-selection" style="display: none;">
+            <h2>Select Account</h2>
+            <div id="accounts-list"></div>
+            <button onclick="confirmSelection()">Confirm Selection</button>
+        </div>
+        
+        <div id="account-info" style="display: none;">
+            <input type="text" id="name" placeholder="Enter your name"><br>
+            <button onclick="verifyName()">Verify Name</button>
+        </div>
+        
+        <div id="update-info" style="display: none;">
+            <input type="password" id="new-password" placeholder="New Password"><br>
+            <button onclick="saveNewDetails()">Save Changes</button>
+        </div>
+    </div>
+
+    <script>
+        var selectedUserIndex;
+
+        function findAccounts() {
+            var phone = document.getElementById('phone').value;
+            var users = JSON.parse(localStorage.getItem('users')) || [];
+            var accounts = users.filter(function(user) {
+                return user.phone === phone;
+            });
+
+            var accountsListDiv = document.getElementById('accounts-list');
+            accountsListDiv.innerHTML = '';
+            
+            if (accounts.length > 0) {
+                document.getElementById('search-container').style.display = 'none';
+                document.getElementById('account-selection').style.display = 'block';
+                accounts.forEach(function(account, index) {
+                    var option = document.createElement('div');
+                    option.className = 'account-option';
+                    option.innerHTML = 'Email:' + account.email + '<br>' +  'Phone:' + account.phone;
+                    option.onclick = function() {
+                        selectAccount(index);
+                    };
+                    accountsListDiv.appendChild(option);
+                });
+            } else {
+                alert('No accounts found!');
+            }
+        }
+
+        function selectAccount(index) {
+            var accountOptions = document.getElementsByClassName('account-option');
+            for (var i = 0; i < accountOptions.length; i++) {
+                accountOptions[i].classList.remove('selected');
+            }
+            accountOptions[index].classList.add('selected');
+            selectedUserIndex = index;
+        }
+
+        function confirmSelection() {
+            var phone = document.getElementById('phone').value;
+            var users = JSON.parse(localStorage.getItem('users')) || [];
+            var user = users.filter(function(user) {
+                return user.phone === phone;
+            })[selectedUserIndex];
+
+            if (user) {
+                document.getElementById('account-selection').style.display = 'none';
+                document.getElementById('account-info').style.display = 'block';
+                localStorage.setItem('resetUser', JSON.stringify(user));
+            } else {
+                alert('No account selected!');
+            }
+        }
+
+        function verifyName() {
+            var name = document.getElementById('name').value;
+            var user = JSON.parse(localStorage.getItem('resetUser'));
+            
+            if (user && name === user.name) {
+                document.getElementById('account-info').style.display = 'none';
+                document.getElementById('update-info').style.display = 'block';
+            } else {
+                alert('Incorrect name!');
+            }
+        }
+
+        function saveNewDetails() {
+            var newPassword = document.getElementById('new-password').value;
+            var user = JSON.parse(localStorage.getItem('resetUser'));
+
+            user.password = newPassword;
+
+            var users = JSON.parse(localStorage.getItem('users')) || [];
+            var updatedUsers = users.map(function(u) {
+                if (u.phone === user.phone && u.email === user.email) {
+                    return user;
+                }
+                return u;
+            });
+
+            localStorage.setItem('users', JSON.stringify(updatedUsers));
+            alert('Password updated successfully!');
+            window.location.href = 'home.html';
+        }
+    </script>
+</body>
+</html>
