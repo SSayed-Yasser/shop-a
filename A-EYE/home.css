@@ -640,10 +640,10 @@ body::-webkit-scrollbar {
     width: 5%;
   }
   .stock-header {
-    height: 92%;
+    height: 91%;
   }
   .header {
-    height: 8%;
+    height: 9%;
   }
 }
 /* header */
