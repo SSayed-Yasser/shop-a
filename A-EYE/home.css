@@ -640,10 +640,10 @@ body::-webkit-scrollbar {
     width: 5%;
   }
   .stock-header {
-    height: 91%;
+    height: 90%;
   }
   .header {
-    height: 9%;
+    height: 10%;
   }
 }
 /* header */
@@ -1354,7 +1354,7 @@ img {
   border-radius: 15px;
   margin: 0;
   transition-duration: 1s;
-  background-color: #00000020;
+  background-color: #0000005d;
 }
 .accs-h4 {
   margin: 0;
@@ -1375,14 +1375,15 @@ img {
   align-items: center;
   justify-content: center;
   border-radius: 0px 10px 10px 0px;
-  margin-top: -15px;
+  margin-top: -10px;
+  margin-left: 20px;
 }
 .sale-h6 {
   margin: 0px;
   margin-right: 2px;
 }
 .discription {
-  font-size: 60%;
+  font-size: 80%;
   text-shadow: 1px 1px 20px #000;
   max-width: 85%;
   margin: 0;
@@ -1390,15 +1391,17 @@ img {
   color: #ffffffa9;
   display: none;
   transition-duration: 1s;
+  margin-left: 20px;
 }
 .discription1 {
-  font-size: 60%;
-  text-shadow: 1px 1px 20px #000;
+  font-size: 100%;
+  text-shadow: 1px 1px 30px #000000;
   max-width: 85%;
-  color: #8e1100;
+  color: #f81d00;
   margin: 0;
   display: none;
   transition-duration: 1s;
+  margin-left: 20px;
 }
 .price-div12 {
   width: 94%;
@@ -1407,11 +1410,13 @@ img {
   display: flex;
   justify-content: center;
   justify-items: center;
+  margin-left: 10px;
 }
 .prive-without-sele2  {
   text-decoration-line: line-through; 
   margin: 0;
-  text-shadow: 1px 1px 20px #000;
+  color: #ffffff;
+  text-shadow: 1px 1px 20px #ffffff;
   margin-right: 10px;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -1429,6 +1434,7 @@ img {
   font-size: 90%;
   background-color: #780000;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-left: 10px;
 }
 .back-filter:hover {
   transition-duration: 1s;

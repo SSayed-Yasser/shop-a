@@ -1,114 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="./checkout.css">
+    <link rel="icon" href="./image/logos/logo-02.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
-    <style>
-        .product {
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            padding: 10px;
-            margin: 10px;
-            display: flex;
-            align-items: center;
-        }
-        .product img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-        .product-details {
-            flex: 1;
-            margin-left: 10px;
-        }
-        .delivery-options, .order-summary, .checkout-buttons {
-            margin-top: 20px;
-            text-align: center;
-        }
-        .order-summary {
-            font-size: 1.2em;
-        }
-    </style>
+
 </head>
 <body>
-    <h1>Cart: <span id="cart-count">0 items</span></h1>
-    <div id="checkout-products"></div>
-    <div class="order-summary">
-        <p id="total-price">Total Price: 0 EG</p>
-        <p id="tax">Tax (14%): 0 EG</p>
-        <p id="final-price">Final Price: 0 EG</p>
+    <div class="header">
+        <div class="head-logo">
+            <img src="./image/logos/logo1.png" alt="" class="logo-img">
+            <h4 style="color: #002e3c;">A</h4>
+            <h4>EYE</h4>
+        </div>
+        <div class="main-head">
+            <h3 style="color: #002e3c;" id="cart-count">0</h3>
+            <h3>&nbspItems</h3>
+        </div>
+        <div class="end-head">
+            <a href="./home.html" class="backhome">Home</a>
+        </div>
     </div>
 
-    <div class="checkout-buttons">
-        <button onclick="confirmOrder()">Confirm Order</button>
-    </div>
-
-    <script>
-        function loadCheckoutProducts() {
-            const selectedProducts = JSON.parse(localStorage.getItem('selectedProducts')) || [];
-            const checkoutProductsDiv = document.getElementById('checkout-products');
-
-            checkoutProductsDiv.innerHTML = '';
-            selectedProducts.forEach((product, index) => {
-                const productDiv = document.createElement('div');
-                productDiv.className = 'product';
-                productDiv.innerHTML = `
-                    <img src="${product.img}" alt="${product.name}">
-                    <div class="product-details">
-                        <h3>${product.name}</h3>
-                        <p>${product.discr}</p>
-                        <p>Price: ${product.price} EG</p>
-                        <p>Quantity: ${product.quantity}</p>
-                        <div class="delivery-options">
-                            <label><input type="radio" name="delivery-${index}" value="0" checked> One week (Free)</label><br>
-                            <label><input type="radio" name="delivery-${index}" value="50"> Two days (50 EG)</label><br>
-                            <label><input type="radio" name="delivery-${index}" value="100"> Same day (100 EG)</label>
-                        </div>
-                        <button onclick="removeProduct(${index})">Remove</button>
+    <div class="main">
+        <div class="price">
+            <div class="contaner">
+                <h3>Order Summary</h3>
+                <div class="price-line">
+                    <div class="line-1">
+                        <h3 style="display: flex; margin: 0;" class="text-1" id="cart-count1">Items (0)</h3>
                     </div>
-                `;
-                checkoutProductsDiv.appendChild(productDiv);
-            });
+                    <div class="line-2">
+                        <h3 style="margin: 0;" id="items-price">0$</h3>
+                    </div>
+                </div>
+                <div class="price-line" style="margin-bottom: -15px;">
+                    <div class="line-1">
+                        <h3 style="display: flex; margin: 0;" class="text-1">Shipping & handling:</h3>
+                    </div>
+                    <div class="line-2">
+                        <h3 style="margin: 0;" id="shipping-price">0$</h3>
+                    </div>
+                </div>
+                <div class="price-line">
+                    <div class="line-1"></div>
+                    <div class="line-2">
+                        <hr style="margin-right: 55px; margin-left: 0px;">
+                    </div>
+                </div>
+                <div class="price-line" style="margin-top: -15px;">
+                    <div class="line-1">
+                        <h3 style="display: flex; margin: 0;" class="text-1">Total before tax:</h3>
+                    </div>
+                    <div class="line-2">
+                        <h3 style="margin: 0;" id="total-before-tax">0$</h3>
+                    </div>
+                </div>
+                <div class="price-line">
+                    <div class="line-1">
+                        <h3 style="display: flex; margin: 0;" class="text-1">Estimated tax (14%):</h3>
+                    </div>
+                    <div class="line-2">
+                        <h3 id="tax" style="margin: 0;">0$</h3>
+                    </div>
+                </div>
+                <hr style="margin-right: 40px; margin-left: 20px;">
+                <div class="price-line" style="margin-top: 10px;">
+                    <div class="line-1">
+                        <h3 style="display: flex; margin: 0;" class="text-2">Order total:</h3>
+                    </div>
+                    <div class="line-2">
+                        <h2 id="final-price" style="margin: 0; color: #a10000;">0$</h2>
+                    </div>
+                </div>
+                <button class="palce-order" onclick="confirmOrder()">Place your order</button>
+            </div>
+        </div>
+        <div class="proud">
+            <div id="checkout-products"></div>
+        </div>
+    </div>
 
-            updateTotalPrice();
-        }
-
-        function removeProduct(index) {
-            let selectedProducts = JSON.parse(localStorage.getItem('selectedProducts')) || [];
-            selectedProducts.splice(index, 1);
-            localStorage.setItem('selectedProducts', JSON.stringify(selectedProducts));
-            loadCheckoutProducts();
-        }
-
-        function updateTotalPrice() {
-            const selectedProducts = JSON.parse(localStorage.getItem('selectedProducts')) || [];
-            let totalPrice = selectedProducts.reduce((total, product) => total + (product.price * product.quantity), 0);
-            let deliveryCost = Array.from(document.querySelectorAll('input[type="radio"]:checked')).reduce((total, radio) => total + parseInt(radio.value), 0);
-            let tax = totalPrice * 0.14;
-            let finalPrice = totalPrice + tax + deliveryCost;
-
-            document.getElementById('total-price').textContent = 'Total Price:' + totalPrice + 'EG';
-            document.getElementById('tax').textContent = 'Tax (14%):' + tax + 'EG';
-            document.getElementById('final-price').textContent = 'Final Price:' + finalPrice  +'EG';
-        }
-
-        document.querySelectorAll('input[type="radio"]').forEach(radio => {
-            radio.addEventListener('change', updateTotalPrice);
-        });
-
-        function confirmOrder() {
-            const selectedProducts = JSON.parse(localStorage.getItem('selectedProducts')) || [];
-            const orders = JSON.parse(localStorage.getItem('orders')) || [];
-            orders.push(selectedProducts);
-            localStorage.setItem('orders', JSON.stringify(orders));
-            localStorage.removeItem('selectedProducts');
-            alert('Order confirmed!');
-            window.location.href = 'home.html';
-        }
-
-        loadCheckoutProducts();
-    </script>
 </body>
+<script src="./checkout-js/mange.js"></script>
 </html>

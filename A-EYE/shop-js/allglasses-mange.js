@@ -296,39 +296,50 @@ sunProducts.forEach((products) => {
 document.querySelector('.sun-containar2').innerHTML = sunproudct2HTML;
 // all sun block
 
+function showToast() {
+  Toastify({
+      text: "Login to bay",
+      duration: 3000
+  }).showToast();
+}
+
 // Define function to add product to cart 11111
 function addToCart3(button) {
-  const productDiv = button.closest('.contant-containar-all');
-  const productName = productDiv.querySelector('.name-all').textContent;
-  const productImg = productDiv.querySelector('img').src;
-  const productDiscr = productDiv.querySelector('.lens-type-dive').textContent;
-  const productSale = productDiv.querySelectorAll('.sale-h6')[1].textContent.replace('%', '');
-  const productPrice = productDiv.querySelector('.prive-with-sele').textContent.replace(' EG', '');
-  const productId = productDiv.querySelector('.sale-h7').textContent;
+  if (localStorage.getItem("bay") == '55') {
+    const productDiv = button.closest('.contant-containar-all');
+    const productName = productDiv.querySelector('.name-all').textContent;
+    const productImg = productDiv.querySelector('img').src;
+    const productDiscr = productDiv.querySelector('.lens-type-dive').textContent;
+    const productSale = productDiv.querySelectorAll('.sale-h6')[1].textContent.replace('%', '');
+    const productPrice = productDiv.querySelector('.prive-with-sele').textContent.replace(' EG', '');
+    const productId = productDiv.querySelector('.sale-h7').textContent;
 
-  const selectedProducts = JSON.parse(localStorage.getItem('selectedProducts')) || [];
+    const selectedProducts = JSON.parse(localStorage.getItem('selectedProducts')) || [];
 
-  // Find if product is already in the cart
-  const existingProductIndex = selectedProducts.findIndex(product => product.id === productId);
-  if (existingProductIndex > -1) {
-      // If product exists, increase the quantity
-      selectedProducts[existingProductIndex].quantity += 1;
+    // Find if product is already in the cart
+    const existingProductIndex = selectedProducts.findIndex(product => product.id === productId);
+    if (existingProductIndex > -1) {
+        // If product exists, increase the quantity
+        selectedProducts[existingProductIndex].quantity += 1;
+    } else {
+        // If product does not exist, add it
+        selectedProducts.push({
+            id: productId,
+            name: productName,
+            img: productImg,
+            discr: productDiscr,
+            sale: productSale,
+            price: productPrice,
+            quantity: 1,
+        });
+    }
+
+    localStorage.setItem('selectedProducts', JSON.stringify(selectedProducts));
+
+    updateCartCount();
   } else {
-      // If product does not exist, add it
-      selectedProducts.push({
-          id: productId,
-          name: productName,
-          img: productImg,
-          discr: productDiscr,
-          sale: productSale,
-          price: productPrice,
-          quantity: 1,
-      });
+    showToast()
   }
-
-  localStorage.setItem('selectedProducts', JSON.stringify(selectedProducts));
-
-  updateCartCount();
 }
 // Apply event listeners to all 'quick-add-button-css' buttons
 document.querySelectorAll('.quick-add-button-css').forEach(button => {
@@ -338,7 +349,8 @@ document.querySelectorAll('.quick-add-button-css').forEach(button => {
 });
 
 // Define function to add product to cart 222
-function addToCart2(button) {
+function addToCart22(button) {
+  if (localStorage.getItem("bay") == '55') {
     const productDiv = button.closest('.contant-containar-all-2');
     const productName = productDiv.querySelector('.for-con-h').textContent;
     const productImg = productDiv.querySelector('img').src;
@@ -370,11 +382,14 @@ function addToCart2(button) {
     localStorage.setItem('selectedProducts', JSON.stringify(selectedProducts));
 
     updateCartCount();
+  } else {
+    showToast()
+  }
 }
 // Apply event listeners to all 'quick-add-button-css' buttons
 document.querySelectorAll('.quick-add-button-css').forEach(button => {
     button.addEventListener('click', function() {
-        addToCart2(this);
+        addToCart22(this);
     });
 });
 
@@ -385,7 +400,7 @@ accProducts.forEach((products) => {
     accsHTML += `
         <div class="div-accs" style=" background-image: url(${products.img});">
           <div class="back-filter">
-            <h3 class="accs-h4">${products.name}</h43>
+            <h3 class="accs-h4">${products.name}</h3>
               <p class="discription">${products.discr}<p class="discription1">one year warranty</p></p>
               <div class="sale-div12">
                 <h6 class="sale-h6">Sale</h6>
@@ -410,7 +425,7 @@ offersProducts.slice(0, 10).forEach((products) => {
     proudct1HTML += `
         <div class="div-accs" style=" background-image: url(${products.img});">
           <div class="back-filter">
-            <h3 class="accs-h4">${products.name}</h43>
+            <h3 class="accs-h4">${products.name}</h3>
               <p class="discription">${products.discr}<p class="discription1">one year warranty</p></p>
               <div class="sale-div12">
                 <h6 class="sale-h6">Sale</h6>
@@ -429,36 +444,41 @@ offersProducts.slice(0, 10).forEach((products) => {
 document.querySelector('.all-glasses-containar223344').innerHTML = proudct1HTML;
 
 function addToCart(button) {
-  const productDiv = button.closest('.div-accs');
-  const productName = productDiv.querySelector('.accs-h4').textContent;
-  const productImg = productDiv.style.backgroundImage.slice(5, -2); 
-  const productDiscr = productDiv.querySelector('.discription').textContent.split("one year warranty")[0];
-  const productSale = productDiv.querySelectorAll('.sale-h6')[1].textContent.replace('%', '');
-  const productPrice = productDiv.querySelector('.prive-with-sele2').textContent.replace(' EG', '');
-  const productId = productDiv.querySelector('.sale-h7').textContent;
+  if (localStorage.getItem("bay") == '55') {
+    const productDiv = button.closest('.div-accs');
+    const productName = productDiv.querySelector('.accs-h4').textContent;
+    const productImg = productDiv.style.backgroundImage.slice(5, -2); 
+    const productDiscr = productDiv.querySelector('.discription').textContent.split("one year warranty")[0];
+    const productSale = productDiv.querySelectorAll('.sale-h6')[1].textContent.replace('%', '');
+    const productPrice = productDiv.querySelector('.prive-with-sele2').textContent.replace(' EG', '');
+    const productId = productDiv.querySelector('.sale-h7').textContent;
 
-  const selectedProducts = JSON.parse(localStorage.getItem('selectedProducts')) || [];
+    const selectedProducts = JSON.parse(localStorage.getItem('selectedProducts')) || [];
 
-  // Find if product is already in the cart
-  const existingProductIndex = selectedProducts.findIndex(product => product.id === productId);
+    // Find if product is already in the cart
+    const existingProductIndex = selectedProducts.findIndex(product => product.id === productId);
 
-  if (existingProductIndex > -1) {
-      selectedProducts[existingProductIndex].quantity += 1;
+    if (existingProductIndex > -1) {
+        selectedProducts[existingProductIndex].quantity += 1;
+    } else {
+        selectedProducts.push({
+            id: productId,
+            name: productName,
+            img: productImg,
+            discr: productDiscr,
+            sale: productSale,
+            price: productPrice,
+            quantity: 1,
+        });
+    }
+
+    localStorage.setItem('selectedProducts', JSON.stringify(selectedProducts));
+
+    updateCartCount();
   } else {
-      selectedProducts.push({
-          id: productId,
-          name: productName,
-          img: productImg,
-          discr: productDiscr,
-          sale: productSale,
-          price: productPrice,
-          quantity: 1,
-      });
+    showToast()
   }
-
-  localStorage.setItem('selectedProducts', JSON.stringify(selectedProducts));
-
-  updateCartCount();
+  
 }
 document.querySelectorAll('.button-acc').forEach(button => {
   button.addEventListener('click', function() {

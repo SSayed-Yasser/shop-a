@@ -326,6 +326,7 @@ document.getElementById('remember-me').checked = true;
 }
 };
 
+
 function login() {
 var email = document.getElementById('gimail-login').value;
 var password = document.getElementById('pass-login').value;
@@ -341,6 +342,7 @@ if (user) {
   document.getElementById('lodinedbutt').innerText = user.name.substring(0, 5);
   var name5 = user.name.substring(0, 5);
   localStorage.setItem("name55", name5)
+  localStorage.setItem("bay", '55')
 
   localStorage.setItem('loggedInUser', JSON.stringify(user));
 
@@ -355,6 +357,7 @@ if (user) {
   localStorage.setItem("loginMethod", "logined");
   window.location.href = './home.html';
 } else {
+  localStorage.setItem("bay", '0')
   // If "Remember Me" is checked, store email and password
   if (rememberMe) {
     localStorage.setItem('rememberedEmail', email);

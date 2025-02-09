@@ -334,7 +334,7 @@ export const products = [{
   name: "Eyeglass Warby Parker",
   price: "5500",
   sale: "10",
-  discr: "lens/ Anti-Reflective Best quality at the lowest price with",
+  discr: "Best quality at the lowest price",
 },{ 
   mod: "off",
   id: "sayed2-45637834456",
@@ -342,7 +342,7 @@ export const products = [{
   name: "Sunglasses Oakley",
   price: "2000",
   sale: "20",
-  discr: "lens/ Anti-Reflective Best quality at the lowest price with",
+  discr: "Best quality at the lowest price",
 },{ 
   mod: "off",
   id: "sayed2-45634737485356",
@@ -350,7 +350,7 @@ export const products = [{
   name: "Sunglass Ray-Ban",
   price: "10000",
   sale: "50",
-  discr: "lens/ Anti-Reflective Best quality at the lowest price with",
+  discr: "Best quality at the lowest price",
 },{ 
   mod: "off",
   id: "sayed2-4563748373456",
@@ -358,7 +358,7 @@ export const products = [{
   name: "Eyeglass Warby Gucci",
   price: "5000",
   sale: "15",
-  discr: "lens/ Anti-Reflective Best quality at the lowest price with",
+  discr: "Best quality at the lowest price",
 },{ 
   mod: "off",
   id: "sayed2-456374373456",
@@ -366,7 +366,7 @@ export const products = [{
   name: "Eyeglass Prada",
   price: "8000",
   sale: "20",
-  discr: "lens/ Anti-Reflective Best quality at the lowest price with",
+  discr: "Best quality at the lowest price",
 },{ 
   mod: "off",
   id: "sayed2-456345743736",
@@ -374,7 +374,7 @@ export const products = [{
   name: "Eyeglass Versace",
   price: "9000",
   sale: "35",
-  discr: "lens/ Anti-Reflective Best quality at the lowest price with",
+  discr: "Best quality at the lowest price",
 },{ 
   mod: "off",
   id: "sayed2-45674373783456",
@@ -382,7 +382,7 @@ export const products = [{
   name: "Eyeglass Dolce & Gabbana",
   price: "6500",
   sale: "20",
-  discr: "lens/ Anti-Reflective Best quality at the lowest price with",
+  discr: "Best quality at the lowest price",
 },{ 
   mod: "off",
   id: "sayed2-4563733783456",
@@ -390,7 +390,7 @@ export const products = [{
   name: "Eyeglass Warby Parker",
   price: "3200",
   sale: "10",
-  discr: "lens/ Anti-Reflective Best quality at the lowest price with",
+  discr: "Best quality at the lowest price",
 },{ 
   mod: "off",
   id: "sayed2-456374333456",
@@ -398,7 +398,7 @@ export const products = [{
   name: "Eyeglass Michael",
   price: "2400",
   sale: "40",
-  discr: "lens/ Anti-Reflective Best quality at the lowest price with",
+  discr: "Best quality at the lowest price",
 },{ 
   mod: "off",
   id: "sayed2-45637343843456",
@@ -406,7 +406,7 @@ export const products = [{
   name: "Eyeglass Warby Parker",
   price: "13000",
   sale: "33",
-  discr: "lens/ Anti-Reflective Best quality at the lowest price with",
+  discr: "Best quality at the lowest price",
 },{ 
   mod: "off",
   id: "sayed2-456737433456",
@@ -414,7 +414,7 @@ export const products = [{
   name: "Eyeglass Kors",
   price: "20000",
   sale: "20",
-  discr: "lens/ Anti-Reflective Best quality at the lowest price with",
+  discr: "Best quality at the lowest price",
 },{ 
   mod: "off",
   id: "sayed2-4567437373456",
@@ -422,5 +422,5 @@ export const products = [{
   name: "Eyeglass Coach",
   price: "35000",
   sale: "5",
-  discr: "lens/ Anti-Reflective Best quality at the lowest price with",
+  discr: "Best quality at the lowest price",
 }];
