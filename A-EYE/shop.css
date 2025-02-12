@@ -178,7 +178,7 @@ body {
 }
 #glasses-se {
   margin: 0;
-  width: 100%;
+  width: 99%;
   height: 100%;
 }
 .main-header-css {
@@ -224,10 +224,11 @@ body {
   padding-bottom: 0;
   font-size: 70%;
   color: #00000085;
-  width: 100%;
+  width: 90%;
   background-color: #f4f4f4;
   height: 20px;
 }
+
 .h3-1 {
   width: 240px;
   margin-left: 30px;

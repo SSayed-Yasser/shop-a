@@ -189,12 +189,13 @@ body::-webkit-scrollbar {
 }
 
 .broduct-con {
-  width: 100%;
+  width: 95%;
   height: 250px;
   margin-top: 20px;
   border-radius: 10px;
   display: flex;
   margin-bottom: 10px;
+  margin-left: 2.5%;
 }
 .img-con {
   width: 30%;
@@ -253,7 +254,7 @@ body::-webkit-scrollbar {
   margin-top: -20px;
 }
 .button-ss{
-  margin-top: 20px;
+  margin-top: 10px;
   width: 90%;
   height: 30px;
   background-color: #00264c;

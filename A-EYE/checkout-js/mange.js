@@ -9,7 +9,13 @@ updateCartCount();
 function updateTotalPrice() {
   const selectedProducts = JSON.parse(localStorage.getItem('selectedProducts')) || [];
   let totalPrice = selectedProducts.reduce((total, product) => total + (parseInt(product.price) * product.quantity), 0);
-  let deliveryCost = Array.from(document.querySelectorAll('input[type="radio"]:checked')).reduce((total, radio) => total + parseInt(radio.value), 0);
+
+  // حساب deliveryCost بناءً على الخيارات المحفوظة في localStorage
+  let deliveryCost = selectedProducts.reduce((total, product, index) => {
+    const savedDeliveryOption = localStorage.getItem(`delivery-${index}`) || '0';
+    return total + parseInt(savedDeliveryOption);
+  }, 0);
+
   let tax = Math.round(totalPrice * 0.14);
   let finalPrice = totalPrice + tax + deliveryCost;
 
@@ -26,8 +32,8 @@ function updateShippingCost() {
       option.addEventListener('change', (event) => {
           const selectedOption = event.target.value;
           const productIndex = event.target.name.split('-')[1];
-          localStorage.setItem(`delivery-${productIndex}`, selectedOption);
-          updateTotalPrice();
+          localStorage.setItem(`delivery-${productIndex}`, selectedOption); // حفظ الخيار المحدد
+          updateTotalPrice();  // تحديث السعر الكلي
       });
   });
 }
