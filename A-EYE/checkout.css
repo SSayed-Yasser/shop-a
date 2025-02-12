@@ -33,12 +33,12 @@ body::-webkit-scrollbar {
 
 .header {
   width: 100%;
-  height: 70px;
+  height: 5%;
   display: flex;
 }
 .head-logo {
   width: 15%;
-  height: 70px;
+  height: 100%;
   align-items: center;
   align-content: center;
   justify-content: center;
@@ -78,12 +78,14 @@ body::-webkit-scrollbar {
 }
 .main {
   width: 100%;
-  height: 800px;
-  display: flex;
+  height: 95%;
+  max-height: 95%;
+  overflow: hidden;
+  display: block;
 }
 .price {
-  width: 30%;
-  height: 100%;
+  width: 100%;
+  height: 40%;
   align-items: center;
   align-content: center;
   justify-content: center;
@@ -92,47 +94,27 @@ body::-webkit-scrollbar {
   padding: 0px;
 }
 .proud {
-  width: 70%;
-  height: 100%;
-  background: scroll;
-  overflow: scroll;
-  scrollbar-width: none;
+  width: 100%;
+  height: 86%;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
 }
+
 @media (max-width: 2000px) {
-  .main {
-    display: flex;
-  }
   .price {
-    width: 30%;
-    height: 60%;
-    margin-top: 5%;
-  }
-  .proud {
-    width: 70%;
-    height: 85%;
-    align-items: left;
-    align-content: left;
-    justify-content: left;
-    justify-items: left;
-    text-align: left;
+    width: 80%;
+    height: 30%;
+    margin-left: 10%;
   }
 }
 @media (max-width: 1200px) {
-  .main {
-    display: block;
-  }
   .price {
     width: 100%;
     height: 40%;
-  }
-  .proud {
-    width: 100%;
-    height: 86%;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    justify-items: center;
-    text-align: center;
+    margin-left: 0%;
   }
 }
 .contaner {
@@ -169,10 +151,10 @@ body::-webkit-scrollbar {
 }
 @media (max-width: 2000px) {
   .line-1 {
-    width: 70%;
+    width: 90%;
   }
   .line-2 {
-    width: 30%;
+    width: 10%;
   }
 }
 @media (max-width: 1200px) {
@@ -181,6 +163,14 @@ body::-webkit-scrollbar {
   }
   .line-2 {
     width: 20%;
+  }
+}
+@media (max-width: 650px) {
+  .line-1 {
+    width: 75%;
+  }
+  .line-2 {
+    width: 25%;
   }
 }
 .palce-order {
@@ -198,79 +188,81 @@ body::-webkit-scrollbar {
   background-color: #efdb00;
 }
 
-
-.product {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 10px;
-  display: flex;
-  align-items: center;
-}
-.product img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-.product-details {
-  flex: 1;
-  margin-left: 10px;
-}
-.delivery-options, .order-summary, .checkout-buttons {
-  margin-top: 20px;
-  text-align: center;
-}
-.order-summary {
-  font-size: 1.2em;
-}
-
-#checkout-products {
-  width: 80%;
-  margin-right: 5%;
-}
-.product {
+.broduct-con {
   width: 100%;
+  height: 250px;
+  margin-top: 20px;
+  border-radius: 10px;
   display: flex;
+  margin-bottom: 10px;
+}
+.img-con {
+  width: 30%;
+  height: 100%;
+  border-radius: 10px;
+}
+.img-edit {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.product-con2 {
+  color: #fff;
+  display: flex;
+  text-align: left;
+  width: 100%;
+  height: 100%;
+  background-color: #00000090;
+  margin-left: -30%;
+  border-radius: 10px;
+  background: linear-gradient(to right, #002b5530 0%, #00162c 30%, #00162c 70%);
+}
+.part1 {
+  height: 100%;
+  width: 31%;
+}
+.part2 {
+  height: 100%;
+  width: 39%;
+}
+.part3 {
+  height: 100%;
+  width: 30%;
   align-items: center;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(to right, #003366, #004080);
-  border: 2px solid #336699;
-  color: white;
+  align-content: center;
 }
-
-.product img {
-  max-width: 20%;
-  border-radius: 10px;
-  margin-right: 20px;
-}
-
-.product-details {
-  flex-grow: 1;
-}
-
-.product-details h3,
-.product-details p {
-  margin: 5px 0;
-}
-
-.product .delivery-options {
+.free {
+  width: 95%;
+  height: 40px;
+  margin-left: 2.5%;
+  background-color: #003569;
   margin-top: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
 }
-
-.product button {
-  margin-top: 10px;
-  padding: 5px 10px;
+.free:hover {
+  background-color: #00264c;
+}
+.disc {
+  color: #ffffff90;
+}
+.qoun {
+  margin-top: -20px;
+}
+.button-ss{
+  margin-top: 20px;
+  width: 90%;
+  height: 30px;
+  background-color: #00264c;
   border: none;
-  border-radius: 5px;
-  background-color: #336699;
-  color: white;
-  cursor: pointer;
+  border-radius: 10px;
+  color: #fff;
+}
+.button-ss:hover{
+  background-color: #003263;
 }
 
-.product button:hover {
-  background-color: #1a5276;
-}
+

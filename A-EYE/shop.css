@@ -152,7 +152,7 @@ body {
 
 /* main */
 .main {
-  width: 100%;
+  width: 98%;
   height: 94%;
   background-color: #ffffff;
   scrollbar-width: none;
@@ -255,8 +255,6 @@ body {
   grid-template-columns: repeat(4, 1fr);
   margin-left: 2.5%;
   margin-right: 2.5%;
-  justify-content: center;
-  justify-items: center;
 }
 @media (max-width: 2000px) {
   .all-glasses-containar {
@@ -422,7 +420,6 @@ body {
   height: max-content;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  justify-items: center;
   margin-left: 2.5%;
   margin-right: 2.5%;
 }

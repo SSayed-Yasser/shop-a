@@ -42,19 +42,39 @@ function loadCheckoutProducts() {
       const productDiv = document.createElement('div');
       productDiv.className = 'product';
       productDiv.innerHTML = `
-          <img src="${product.img}" alt="">
-          <div class="product-details">
-              <h3>${product.name}</h3>
-              <p>${product.discr}</p>
-              <p>Price: ${product.price} EG</p>
-              <p>Quantity: ${product.quantity}</p>
-              <div class="delivery-options">
-                  <label><input type="radio" name="delivery-${index}" value="0" ${savedDeliveryOption === '0' ? 'checked' : ''}> One week (Free)</label><br>
-                  <label><input type="radio" name="delivery-${index}" value="50" ${savedDeliveryOption === '50' ? 'checked' : ''}> Two days (50 EG)</label><br>
-                  <label><input type="radio" name="delivery-${index}" value="100" ${savedDeliveryOption === '100' ? 'checked' : ''}> Same day (100 EG)</label>
+              <div class="broduct-con">
+                <div class="img-con">
+                <img src="${product.img}" alt="" class="img-edit">
+                </div>
+                <div class="product-con2">
+                    <div class="part1"></div>
+                    <div class="part2">
+                        <h3 class="proudct-name">${product.name}</h3>
+                        <p class="disc">${product.discr}</p>
+                        <div class="qoun" style="display: flex;">
+                            <p>Price: ${product.price}</p>
+                        </div>
+                        <div class="qoun" style="display: flex;">
+                            <p>Quantity: ${product.quantity}</p>
+                        </div>
+                        <button class="button-ss" onclick="removeProduct(${index})">Remove</button>
+                    </div>
+                    <div class="part3">
+                        <div class="free">
+                            <input type="radio" name="delivery-${index}" value="0" ${savedDeliveryOption === '0' ? 'checked' : ''}>
+                            <h5>One week (Free)</h5>
+                        </div>
+                        <div class="free">
+                            <input type="radio" name="delivery-${index}" value="50" ${savedDeliveryOption === '50' ? 'checked' : ''}>
+                            <h5> Two days (50 EG)</h5>
+                        </div>
+                        <div class="free">
+                            <input type="radio" name="delivery-${index}" value="100" ${savedDeliveryOption === '100' ? 'checked' : ''}>
+                            <h5>Same day (100 EG)</h5>
+                        </div>
+                    </div>
+                </div>
               </div>
-              <button onclick="removeProduct(${index})">Remove</button>
-          </div>
       `;
       checkoutProductsDiv.appendChild(productDiv);
   });
